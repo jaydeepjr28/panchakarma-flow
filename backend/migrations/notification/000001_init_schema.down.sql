@@ -1,0 +1,3 @@
+DROP TABLE IF EXISTS outbox_events CASCADE;
+DROP TABLE IF EXISTS notification_preferences CASCADE;
+DROP TABLE IF EXISTS notifications CASCADE;

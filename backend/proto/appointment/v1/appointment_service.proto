@@ -1,0 +1,43 @@
+syntax = "proto3";
+
+package appointment.v1;
+
+option go_package = "github.com/jaydeepjr28/panchakarma-flow/proto/gen/go/appointment/v1;appointmentv1";
+
+service AppointmentService {
+  // Verifies appointment eligibility before therapist check-in
+  rpc VerifyAppointmentForSession(VerifyAppointmentRequest) returns (VerifyAppointmentResponse);
+
+  // Retrieves summarized appointment details
+  rpc GetAppointmentSummary(GetAppointmentSummaryRequest) returns (GetAppointmentSummaryResponse);
+}
+
+message VerifyAppointmentRequest {
+  string appointment_id = 1;
+  string clinic_id = 2;
+}
+
+message VerifyAppointmentResponse {
+  bool is_eligible = 1;
+  string rejection_reason = 2; // e.g. "ALREADY_CHECKED_IN", "CANCELLED", "NOT_FOUND"
+  string patient_id = 3;
+  string doctor_id = 4;
+  string room_id = 5;
+  string package_id = 6;
+  int64 scheduled_start_unix = 7;
+  int64 scheduled_end_unix = 8;
+}
+
+message GetAppointmentSummaryRequest {
+  string appointment_id = 1;
+}
+
+message GetAppointmentSummaryResponse {
+  string appointment_id = 1;
+  string patient_id = 2;
+  string doctor_id = 3;
+  string clinic_id = 4;
+  string status = 5;
+  int64 scheduled_start_unix = 6;
+  int64 scheduled_end_unix = 7;
+}

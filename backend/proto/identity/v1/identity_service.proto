@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+package identity.v1;
+
+option go_package = "github.com/jaydeepjr28/panchakarma-flow/proto/gen/go/identity/v1;identityv1";
+
+service IdentityService {
+  // Validates JWT token and checks blacklist
+  rpc ValidateToken(ValidateTokenRequest) returns (ValidateTokenResponse);
+
+  // Retrieves minimal patient profile for clinical records
+  rpc GetPatientSummary(GetPatientSummaryRequest) returns (GetPatientSummaryResponse);
+}
+
+message ValidateTokenRequest {
+  string access_token = 1;
+}
+
+message ValidateTokenResponse {
+  bool is_valid = 1;
+  string user_id = 2;
+  string role = 3;
+  string clinic_id = 4; // Empty if patient
+}
+
+message GetPatientSummaryRequest {
+  string patient_id = 1;
+}
+
+message GetPatientSummaryResponse {
+  string patient_id = 1;
+  string full_name = 2;
+  string emergency_phone = 3;
+  string blood_group = 4;
+}

@@ -1,0 +1,9 @@
+DROP TABLE IF EXISTS outbox_events CASCADE;
+DROP TABLE IF EXISTS session_audit_logs CASCADE;
+DROP TABLE IF EXISTS session_follow_ups CASCADE;
+DROP TABLE IF EXISTS complication_events CASCADE;
+DROP TABLE IF EXISTS session_materials CASCADE;
+DROP TABLE IF EXISTS session_step_executions CASCADE;
+DROP TABLE IF EXISTS therapy_sessions CASCADE;
+DROP TYPE IF EXISTS step_status CASCADE;
+DROP TYPE IF EXISTS session_status CASCADE;

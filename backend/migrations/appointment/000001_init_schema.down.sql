@@ -1,0 +1,6 @@
+DROP TABLE IF EXISTS outbox_events CASCADE;
+DROP TABLE IF EXISTS appointment_waitlists CASCADE;
+DROP TABLE IF EXISTS appointment_holds CASCADE;
+DROP TABLE IF EXISTS appointment_history CASCADE;
+DROP TABLE IF EXISTS appointments CASCADE;
+DROP TYPE IF EXISTS appointment_status CASCADE;

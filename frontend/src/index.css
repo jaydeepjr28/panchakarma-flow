@@ -1,0 +1,203 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --neu-bg: #F5F3EC;
+  --neu-surface: #F5F3EC;
+  --forest-green: #315C49;
+  --deep-green: #234737;
+  --sage-green: #A8B9A0;
+  --terracotta: #C98769;
+  --charcoal: #27352D;
+  --slateneu: #6F7B71;
+  --neu-border: #E2DFD2;
+
+  --background: 48 25% 94%;
+  --foreground: 147 15% 18%;
+  --border: 45 20% 86%;
+  --input: 45 20% 86%;
+  --ring: 154 30% 28%;
+  --radius: 1.125rem;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #F5F3EC;
+  color: #27352D;
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+}
+
+h1, h2, h3, .font-serif {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  letter-spacing: -0.02em;
+}
+
+.font-ayur {
+  font-family: 'Playfair Display', serif;
+}
+
+/* =========================================================================
+   NEUMORPHISM DESIGN SYSTEM SURFACES & SHADOWS
+   Calibrated for #F5F3EC base with gentle natural lighting from top-left
+   ========================================================================= */
+
+.neu-raised-xs {
+  box-shadow: 2px 2px 4px rgba(190, 184, 168, 0.5), -2px -2px 4px rgba(255, 255, 255, 0.95);
+}
+
+.neu-raised-sm {
+  box-shadow: 3px 3px 7px rgba(190, 184, 168, 0.55), -3px -3px 7px rgba(255, 255, 255, 0.95);
+}
+
+.neu-raised {
+  box-shadow: 6px 6px 14px rgba(190, 184, 168, 0.55), -6px -6px 14px rgba(255, 255, 255, 0.95);
+}
+
+.neu-raised-lg {
+  box-shadow: 10px 10px 24px rgba(190, 184, 168, 0.6), -10px -10px 24px rgba(255, 255, 255, 0.95);
+}
+
+.neu-inset-sm {
+  box-shadow: inset 2px 2px 4px rgba(190, 184, 168, 0.5), inset -2px -2px 4px rgba(255, 255, 255, 0.9);
+}
+
+.neu-inset {
+  box-shadow: inset 3px 3px 7px rgba(190, 184, 168, 0.55), inset -3px -3px 7px rgba(255, 255, 255, 0.95);
+}
+
+.neu-inset-deep {
+  box-shadow: inset 4px 4px 10px rgba(190, 184, 168, 0.6), inset -4px -4px 10px rgba(255, 255, 255, 0.95);
+}
+
+.neu-pressed {
+  box-shadow: inset 2px 2px 5px rgba(190, 184, 168, 0.65), inset -2px -2px 5px rgba(255, 255, 255, 0.9);
+}
+
+/* Interactive tactile button */
+.neu-button {
+  background-color: #F5F3EC;
+  box-shadow: 4px 4px 10px rgba(190, 184, 168, 0.6), -4px -4px 10px rgba(255, 255, 255, 0.95);
+  transition: all 0.18s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.neu-button:hover:not(:disabled) {
+  box-shadow: 5px 5px 13px rgba(190, 184, 168, 0.65), -5px -5px 13px rgba(255, 255, 255, 1);
+  transform: translateY(-1px);
+}
+
+.neu-button:active:not(:disabled) {
+  box-shadow: inset 2px 2px 5px rgba(190, 184, 168, 0.7), inset -2px -2px 5px rgba(255, 255, 255, 0.9);
+  transform: translateY(1px);
+}
+
+/* Primary Forest Action Button */
+.neu-button-primary {
+  background-color: #315C49;
+  color: #F5F3EC;
+  box-shadow: 4px 4px 12px rgba(190, 184, 168, 0.6), -3px -3px 8px rgba(255, 255, 255, 0.8), 0 0 12px rgba(49, 92, 73, 0.25);
+  transition: all 0.18s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.neu-button-primary:hover:not(:disabled) {
+  background-color: #284E3E;
+  box-shadow: 6px 6px 16px rgba(190, 184, 168, 0.7), -4px -4px 10px rgba(255, 255, 255, 0.9), 0 0 18px rgba(49, 92, 73, 0.4);
+  transform: translateY(-1px);
+}
+
+.neu-button-primary:active:not(:disabled) {
+  background-color: #234737;
+  box-shadow: inset 2px 2px 6px rgba(15, 35, 25, 0.6), inset -2px -2px 6px rgba(60, 110, 85, 0.4);
+  transform: translateY(1px);
+}
+
+/* Accent Terracotta Button */
+.neu-button-accent {
+  background-color: #C98769;
+  color: #FFFFFF;
+  box-shadow: 4px 4px 12px rgba(190, 184, 168, 0.6), -3px -3px 8px rgba(255, 255, 255, 0.8), 0 0 12px rgba(201, 135, 105, 0.3);
+  transition: all 0.18s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.neu-button-accent:hover:not(:disabled) {
+  background-color: #BD7859;
+  box-shadow: 6px 6px 16px rgba(190, 184, 168, 0.7), -4px -4px 10px rgba(255, 255, 255, 0.9), 0 0 18px rgba(201, 135, 105, 0.45);
+  transform: translateY(-1px);
+}
+
+.neu-button-accent:active:not(:disabled) {
+  background-color: #A9674A;
+  box-shadow: inset 2px 2px 6px rgba(110, 50, 25, 0.6), inset -2px -2px 6px rgba(230, 160, 130, 0.4);
+  transform: translateY(1px);
+}
+
+/* Inset Input Fields */
+.neu-input {
+  background-color: #F5F3EC;
+  border: 1px solid #E2DFD2;
+  box-shadow: inset 2px 2px 5px rgba(190, 184, 168, 0.45), inset -2px -2px 5px rgba(255, 255, 255, 0.9);
+  color: #27352D;
+  transition: all 0.15s ease-in-out;
+}
+
+.neu-input:focus {
+  outline: none;
+  border-color: #315C49;
+  box-shadow: inset 2px 2px 6px rgba(190, 184, 168, 0.55), inset -2px -2px 6px rgba(255, 255, 255, 0.95), 0 0 0 3px rgba(49, 92, 73, 0.18);
+}
+
+/* Card Surface */
+.neu-card {
+  background-color: #F5F3EC;
+  border: 1px solid rgba(226, 223, 210, 0.6);
+  box-shadow: 6px 6px 16px rgba(190, 184, 168, 0.5), -6px -6px 16px rgba(255, 255, 255, 0.95);
+  border-radius: 1.125rem;
+}
+
+/* Inset Container (e.g., Tab bar, Track, Table header) */
+.neu-container-inset {
+  background-color: #EFECE3;
+  box-shadow: inset 3px 3px 7px rgba(190, 184, 168, 0.5), inset -3px -3px 7px rgba(255, 255, 255, 0.85);
+  border-radius: 1rem;
+}
+
+/* Custom Clean Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #EFECE3;
+  border-radius: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #C4BEB0;
+  border-radius: 8px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #A8A294;
+}
+
+/* Accessibility Focus States */
+:focus-visible {
+  outline: 2px solid #315C49 !important;
+  outline-offset: 2px !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

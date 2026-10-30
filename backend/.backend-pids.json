@@ -1,0 +1,51 @@
+[
+    {
+        "Name":  "identity-service",
+        "PID":  22952,
+        "Http":  8081,
+        "Grpc":  9081,
+        "Log":  "C:\\panchakarma flow\\backend\\logs\\identity-service.out.log"
+    },
+    {
+        "Name":  "clinic-service",
+        "PID":  26052,
+        "Http":  8082,
+        "Grpc":  9082,
+        "Log":  "C:\\panchakarma flow\\backend\\logs\\clinic-service.out.log"
+    },
+    {
+        "Name":  "appointment-service",
+        "PID":  13612,
+        "Http":  8083,
+        "Grpc":  9083,
+        "Log":  "C:\\panchakarma flow\\backend\\logs\\appointment-service.out.log"
+    },
+    {
+        "Name":  "therapy-service",
+        "PID":  16308,
+        "Http":  8084,
+        "Grpc":  9084,
+        "Log":  "C:\\panchakarma flow\\backend\\logs\\therapy-service.out.log"
+    },
+    {
+        "Name":  "notification-service",
+        "PID":  21144,
+        "Http":  8085,
+        "Grpc":  9085,
+        "Log":  "C:\\panchakarma flow\\backend\\logs\\notification-service.out.log"
+    },
+    {
+        "Name":  "feedback-analytics-service",
+        "PID":  5768,
+        "Http":  8086,
+        "Grpc":  9086,
+        "Log":  "C:\\panchakarma flow\\backend\\logs\\feedback-analytics-service.out.log"
+    },
+    {
+        "Name":  "api-gateway",
+        "PID":  26448,
+        "Http":  8080,
+        "Grpc":  0,
+        "Log":  "C:\\panchakarma flow\\backend\\logs\\api-gateway.out.log"
+    }
+]

@@ -1,0 +1,66 @@
+syntax = "proto3";
+
+package clinic.v1;
+
+option go_package = "github.com/jaydeepjr28/panchakarma-flow/proto/gen/go/clinic/v1;clinicv1";
+
+service ClinicService {
+  // Validates if a doctor, room, and equipment are available for a given slot
+  rpc ValidateSlotAndRoom(ValidateSlotAndRoomRequest) returns (ValidateSlotAndRoomResponse);
+
+  // Retrieves package metadata (duration, steps, pricing)
+  rpc GetPackageSnapshot(GetPackageSnapshotRequest) returns (GetPackageSnapshotResponse);
+
+  // Retrieves doctor schedule and capacity
+  rpc GetDoctorAvailability(GetDoctorAvailabilityRequest) returns (GetDoctorAvailabilityResponse);
+}
+
+message ValidateSlotAndRoomRequest {
+  string clinic_id = 1;
+  string doctor_id = 2;
+  string room_id = 3;
+  int64 start_time_unix = 4;
+  int64 end_time_unix = 5;
+  string package_id = 6;
+}
+
+message ValidateSlotAndRoomResponse {
+  bool is_valid = 1;
+  string rejection_reason = 2; // Empty if valid; otherwise e.g. "DOCTOR_ON_LEAVE"
+  int32 sanitation_buffer_minutes = 3;
+}
+
+message GetPackageSnapshotRequest {
+  string package_id = 1;
+}
+
+message PackageStepSnapshot {
+  string step_id = 1;
+  int32 step_order = 2;
+  string name = 3;
+  int32 duration_minutes = 4;
+  repeated string required_equipment = 5;
+}
+
+message GetPackageSnapshotResponse {
+  string package_id = 1;
+  string clinic_id = 2;
+  string name = 3;
+  int32 total_duration_minutes = 4;
+  int32 total_sessions = 5;
+  int64 price_cents = 6;
+  int32 version = 7;
+  repeated PackageStepSnapshot steps = 8;
+}
+
+message GetDoctorAvailabilityRequest {
+  string doctor_id = 1;
+  int64 date_unix = 2;
+}
+
+message GetDoctorAvailabilityResponse {
+  string doctor_id = 1;
+  int32 max_sessions_per_day = 2;
+  bool is_on_leave = 3;
+  repeated string available_time_slots = 4;
+}
